@@ -2,10 +2,12 @@
 
 import wpilib
 
+
 from utils import MultiMotor
 from subsystems import DriveTrain
 from commands import DriveCmd
 from nutrons import Robot
+
 
 class MyRobot(wpilib.IterativeRobot):
     '''Main robot class'''
@@ -13,6 +15,7 @@ class MyRobot(wpilib.IterativeRobot):
     def robotInit(self):
         '''Robot-wide initialization code should go here'''
         Robot.dt = DriveTrain()
+
         Robot.twstick = wpilib.Joystick(1)
         Robot.hstick = wpilib.Joystick(2)
         Robot.left_drive = MultiMotor(4)
@@ -41,6 +44,7 @@ class MyRobot(wpilib.IterativeRobot):
     def teleopPeriodic(self):
         '''Called every 20ms in teleoperated mode'''
         wpilib.command.Scheduler.getInstance().run()
+
         # Move a motor with a Joystick
         #self.motor.set(self.lstick.getY())
 

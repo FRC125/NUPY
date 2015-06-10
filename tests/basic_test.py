@@ -1,4 +1,4 @@
-  #
+
 # This is a py.test based testing system. Anything you can do with
 # py.test, you can do with this too. There are a few magic parameters
 # provided as fixtures that will allow your tests to access the robot
