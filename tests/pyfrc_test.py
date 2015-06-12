@@ -7,25 +7,27 @@
 from pyfrc.tests import *
 from subsystems import DriveTrain
 import math
+import itertools
 
 def norm(vec_1):
 	return math.sqrt(sum(e**2 for e in vec_1))
 
-def almost_equal(vec_1, vec_2):
+def magnitude_almost_equal(vec_1, vec_2):
 	return abs(norm(vec_1)-norm(vec_2)) < 0.000001
 def test_get_field_centric():
 	dt = DriveTrain()
 
-	assert dt.get_field_centric(0, 0, 0) == (0,0)
-	assert dt.get_field_centric(0, 1, 0) == (1,0)
-	assert dt.get_field_centric(0, 0, 1) == (0,1)
-	assert almost_equal(dt.get_field_centric(360, 1, 0), (1,0))
-	assert almost_equal(dt.get_field_centric(360, 0, 1), (0,1))
-	assert almost_equal(dt.get_field_centric(180, 1, 0), (-1,0))
-	assert almost_equal(dt.get_field_centric(180, 0, 1), (0,-1))
-	assert almost_equal(dt.get_field_centric(90, 1, 0), (0,1))
-	assert almost_equal(dt.get_field_centric(45, 1, 0), (0.7071067812, 0.7071067812))
-	assert almost_equal(dt.get_field_centric(135, 1, 0), (-0.7071067812, 0.7071067812))
+	x_range = [float(i)/10 for i in range(10)]
+	y_range = [float(i)/10 for i in range(10)]
+	t_range = range(360)
+
+	for x, y, t in itertools.product(x_range, y_range, t_range):
+		assert magnitude_almost_equal((x,y), (dt.get_field_centric(t, x, y)))
 
 
 
+
+
+
+
+	
