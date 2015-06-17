@@ -3,12 +3,12 @@ from utils import MultiMotor
 from nutrons import Robot
 from commands import DriveCmd
 from math import sin, cos, radians
-
+import imu
 class DriveTrain(wpilib.command.Subsystem):
     
     def initDefaultCommand(self):
         self.setDefaultCommand(DriveCmd())
-        self.gyro = wpilib.Gyro(1)
+        self.gyro = imu.ImuGyro()
         #self.logger.info("Setting default")
     def driveTWH(self,throttle,wheel,h):
         '''Takes a speed, a turn-ratio, and an h-wheel and sets each motor'''
