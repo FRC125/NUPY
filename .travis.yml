@@ -4,6 +4,6 @@ python:
   - "3.3"
   - "3.4"
 # command to install dependencies
-install: "pip3 install frcpy"
+install: "pip3 install pyfrc"
 # command to run tests
 script: python3 src/robot.py test
