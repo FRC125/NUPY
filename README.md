@@ -4,7 +4,7 @@
 You need python3 and pyfrc installed.
 
 
-1. Download the [requirements file](https://onedrive.live.com/redir?resid=C142E83084A170C3!3178&authkey=!ACns8JbiF2Njvz8&ithint=file%2ctxt)
+1. Download the [requirements file](https://www.dropbox.com/s/jk7qwxfd1sz83a0/requirements.txt?dl=0)
 
 2. Install the required packages by executing
 
