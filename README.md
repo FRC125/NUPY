@@ -1,4 +1,4 @@
-# NUPY
+# NUPY [![Build Status](https://travis-ci.org/FRC125/NUPY.svg?branch=master)](https://travis-ci.org/FRC125/NUPY)
 
 ## How to Run
 You need python3 and pyfrc installed.
