@@ -1,12 +1,14 @@
-# NUPY
+# NUPY [![Build Status](https://travis-ci.org/FRC125/NUPY.svg?branch=master)](https://travis-ci.org/FRC125/NUPY)
 
 ## How to Run
 You need python3 and pyfrc installed.
 
 
-1. Install PyFrc
+1. Download the [requirements file](https://www.dropbox.com/s/jk7qwxfd1sz83a0/requirements.txt?dl=0)
 
-    ```pip3 install pyfrc```
+2. Install the required packages by executing
+
+    ```pip3 install -r requirements.txt```
     
 2. Clone repo
 
