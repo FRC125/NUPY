@@ -4,15 +4,14 @@
 You need python3 and pyfrc installed.
 
 
-1. Download the [requirements file](https://www.dropbox.com/s/jk7qwxfd1sz83a0/requirements.txt?dl=0)
+1. Clone repo
 
-2. Install the required packages by executing
+2. cd to src directory
+
+3. Install the required packages by executing
 
     ```pip3 install -r requirements.txt```
-    
-2. Clone repo
 
-3. cd to src directory
 
 4. Run robot.py:
   * run tests: ```python3 robot.py test```
