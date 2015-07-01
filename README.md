@@ -6,12 +6,11 @@ You need python3 and pyfrc installed.
 
 1. Clone repo
 
-2. cd to src directory
-
-3. Install the required packages by executing
+2. Install the required packages by executing
 
     ```pip3 install -r requirements.txt```
 
+3. cd to src directory
 
 4. Run robot.py:
   * run tests: ```python3 robot.py test```
