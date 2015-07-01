@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import wpilib 
+import wpilib
 
 
 from utils import MultiMotor
@@ -8,16 +8,17 @@ from subsystems import DriveTrain, Elevator, Intake
 from commands import DriveCmd
 from nutrons import Robot
 from networktables import NetworkTable
-from wpilib import DigitalInput
+from wpilib import DigitalInput, Encoder
+from autonomous.test_auton import AutonDrive
 
 
 class MyRobot(wpilib.IterativeRobot):
     '''Main robot class'''
-    
+
     def robotInit(self):
         '''Robot-wide initialization code should go here'''
         self.sd = NetworkTable.getTable('SmartDashboard')
-        self.i = 0       
+        self.i = 0
         Robot.dt = DriveTrain()
         Robot.elevator = Elevator()
         Robot.intake = Intake()
@@ -31,11 +32,14 @@ class MyRobot(wpilib.IterativeRobot):
         Robot.bottom_limitswitch = DigitalInput(1)
         Robot.solenoid = wpilib.DoubleSolenoid(7, 0)
         Robot.intake_motor = MultiMotor(0)
+        Robot.encoder = Encoder(3,4)
 
+
+        self.autonomous_command = AutonDrive()
         self.auto_steps = 0
     def autonomousInit(self):
         '''Called only at the beginning of autonomous mode'''
-        pass
+        self.autonomous_command.start()
     def autonomousPeriodic(self):
         '''Called every 20ms in autonomous mode'''
         wpilib.command.Scheduler.getInstance().run()
@@ -43,7 +47,7 @@ class MyRobot(wpilib.IterativeRobot):
     def disabledInit(self):
         '''Called only at the beginning of disabled mode'''
         pass
-    
+
     def disabledPeriodic(self):
         '''Called every 20ms in disabled mode'''
         pass
