@@ -1,10 +1,10 @@
 import wpilib
 
 from nutrons import Robot
-from utils import MultiMotor
-from networktables import NetworkTable
 from wpilib import DigitalInput
 from wpilib import Encoder
+from utils.multi_motor import Multi_motor
+from networktables import NetworkTable
 from subsystems.drive_train import Drive_train
 from subsystems.elevator import Elevator
 from subsystems.intake import Intake
@@ -23,14 +23,14 @@ class MyRobot(wpilib.IterativeRobot):
         Robot.intake = Intake()
         Robot.twstick = wpilib.Joystick(1)
         Robot.hstick = wpilib.Joystick(2)
-        Robot.left_drive = MultiMotor(4)
-        Robot.right_drive = MultiMotor(3)
-        Robot.h_motor = MultiMotor(2)
-        Robot.elevator_motor = MultiMotor(5)
+        Robot.left_drive = Multi_motor(4)
+        Robot.right_drive = Multi_motor(3)
+        Robot.h_motor = Multi_motor(2)
+        Robot.elevator_motor = Multi_motor(5)
         Robot.top_limitswitch = DigitalInput(2)
         Robot.bottom_limitswitch = DigitalInput(1)
         Robot.solenoid = wpilib.DoubleSolenoid(7, 0)
-        Robot.intake_motor = MultiMotor(0)
+        Robot.intake_motor = Multi_motor(0)
         Robot.encoder = Encoder(3,4)
 
 

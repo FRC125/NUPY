@@ -1,7 +1,7 @@
 import wpilib
 
 
-class MultiMotor:
+class Multi_motor:
 
     def __init__(self,*ports):
         self.ports = ports

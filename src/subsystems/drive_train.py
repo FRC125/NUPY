@@ -12,7 +12,7 @@ class Drive_train(wpilib.command.Subsystem):
 
     def initDefaultCommand(self):
         self.setDefaultCommand(Drive_cmd())
-        #self.gyro = imu.Imu_gyro()
+        self.gyro = imu.Imu_gyro()
 
     def drive_TWH(self, throttle, wheel, h):
         '''Takes a speed, a turn-ratio, and an h-wheel and sets each motor'''

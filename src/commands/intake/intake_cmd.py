@@ -1,29 +1,14 @@
 import wpilib
-from wpilib.command import Command
+
 from nutrons import Robot
 
 
+class Intake_cmd(wpilib.command.Command):
 
-class ElevatorCmd(wpilib.command.Command):
-    def __init__(self):
-        wpilib.command.Command.__init__(self)
-        self.requires(Robot.elevator)
-    def initialize(self):
-        pass
-
-    def execute(self):
-        if Robot.twstick.getRawButton(2):
-            Robot.elevator.elevator_up()
-        if Robot.twstick.getRawButton(3):
-            Robot.elevator.elevator_down()
-
-    def isFinished(self):
-        return False
-
-class IntakeCmd(wpilib.command.Command):
     def __init__(self):
         wpilib.command.Command.__init__(self)
         self.requires(Robot.intake)
+
     def initialize(self):
         pass
 
