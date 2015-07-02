@@ -16,7 +16,7 @@ You need python3 and pyfrc installed.
   * run tests: ```python3 robot.py test```
   * simulate: ```python3 robot.py sim```
   * deploy to robot: ```python3 robot.py deploy```
-  
+
 ## More Info
-  
+
   For more info see [PyFrc](http://pyfrc.readthedocs.org/en/latest/) and [RobotPy](http://robotpy.readthedocs.org/en/latest/) documentation
