@@ -8,7 +8,7 @@ from networktables import NetworkTable
 from subsystems.drive_train import Drive_train
 from subsystems.elevator import Elevator
 from subsystems.intake import Intake
-from autonomous.test_auton import AutonDrive
+from autonomous.auto_drive import Auto_drive
 
 
 class MyRobot(wpilib.IterativeRobot):
@@ -31,10 +31,9 @@ class MyRobot(wpilib.IterativeRobot):
         Robot.bottom_limitswitch = DigitalInput(1)
         Robot.solenoid = wpilib.DoubleSolenoid(7, 0)
         Robot.intake_motor = Multi_motor(0)
-        Robot.encoder = Encoder(3,4)
+        Robot.encoder = Encoder(3, 4)
 
-
-        self.autonomous_command = AutonDrive()
+        self.autonomous_command = Auto_drive()
         self.auto_steps = 0
 
     def autonomousInit(self):
@@ -62,11 +61,11 @@ class MyRobot(wpilib.IterativeRobot):
         '''Called every 20ms in teleoperated mode'''
         wpilib.command.Scheduler.getInstance().run()
 
-        if self.i%100 ==0:
+        if self.i % 100 == 0:
             self.sd.putDouble('Gypro', Robot.dt.get_gyro_angle())
-        self.i+= 1
+        self.i += 1
         # Move a motor with a Joystick
-        #self.motor.set(self.lstick.getY())
+        # self.motor.set(self.lstick.getY())
 
 if __name__ == '__main__':
-    wpilib.run(MyRobot,physics_enabled=True)
+    wpilib.run(MyRobot, physics_enabled=True)

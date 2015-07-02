@@ -17,15 +17,17 @@ from pyfrc.physics import drivetrains
 
 class PhysicsEngine(object):
     '''
-        Simulates a motor moving something that strikes two limit switches,
-        one on each end of the track. Obviously, this is not particularly
-        realistic, but it's good enough to illustrate the point
+        Simulates a motor moving something that strikes
+        two limit switches, one on each end of the track.
+        Obviously, this is not particularly realistic,
+        but it's good enough to illustrate the point
     '''
 
     def __init__(self, physics_controller):
         '''
-            :param physics_controller: `pyfrc.physics.core.PhysicsInterface` object
-                                       to communicate simulation effects to
+            :param physics_controller:
+            `pyfrc.physics.core.PhysicsInterface` object
+            to communicate simulation effects to
         '''
 
         self.physics_controller = physics_controller
@@ -40,7 +42,7 @@ class PhysicsEngine(object):
 
             :param now: The current time as a float
             :param tm_diff: The amount of time that has passed since the last
-                            time that this function was called
+            time that this function was called
         '''
 
         # Simulate the drivetrain
@@ -50,8 +52,7 @@ class PhysicsEngine(object):
         h_motor = hal_data['pwm'][2]['value']
 
         speed, rotation = drivetrains.two_motor_drivetrain(l_motor, r_motor)
-        self.physics_controller.vector_drive(h_motor,speed, rotation, tm_diff)
-
+        self.physics_controller.vector_drive(h_motor, speed, rotation, tm_diff)
 
         # update position (use tm_diff so the rate is constant)
         self.position += hal_data['pwm'][4]['value'] * tm_diff * 3
