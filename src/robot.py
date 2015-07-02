@@ -1,14 +1,13 @@
-#!/usr/bin/env python3
-
 import wpilib
 
-
-from utils import MultiMotor
-from subsystems import DriveTrain, Elevator, Intake
-from commands import DriveCmd
 from nutrons import Robot
+from utils import MultiMotor
 from networktables import NetworkTable
-from wpilib import DigitalInput, Encoder
+from wpilib import DigitalInput
+from wpilib import Encoder
+from subsystems.drive_train import Drive_train
+from subsystems.elevator import Elevator
+from subsystems.intake import Intake
 from autonomous.test_auton import AutonDrive
 
 
@@ -19,7 +18,7 @@ class MyRobot(wpilib.IterativeRobot):
         '''Robot-wide initialization code should go here'''
         self.sd = NetworkTable.getTable('SmartDashboard')
         self.i = 0
-        Robot.dt = DriveTrain()
+        Robot.dt = Drive_train()
         Robot.elevator = Elevator()
         Robot.intake = Intake()
         Robot.twstick = wpilib.Joystick(1)
@@ -37,13 +36,16 @@ class MyRobot(wpilib.IterativeRobot):
 
         self.autonomous_command = AutonDrive()
         self.auto_steps = 0
+
     def autonomousInit(self):
         '''Called only at the beginning of autonomous mode'''
         self.autonomous_command.start()
+
     def autonomousPeriodic(self):
         '''Called every 20ms in autonomous mode'''
         wpilib.command.Scheduler.getInstance().run()
         self.auto_steps += 1
+
     def disabledInit(self):
         '''Called only at the beginning of disabled mode'''
         pass
@@ -61,7 +63,7 @@ class MyRobot(wpilib.IterativeRobot):
         wpilib.command.Scheduler.getInstance().run()
 
         if self.i%100 ==0:
-            self.sd.putDouble('Gypro', Robot.dt.gyro.getAngle())
+            self.sd.putDouble('Gypro', Robot.dt.get_gyro_angle())
         self.i+= 1
         # Move a motor with a Joystick
         #self.motor.set(self.lstick.getY())

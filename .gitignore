@@ -1,3 +1,2 @@
 # Python cache
-src/_pycache_/
-tests/_pycache_/
+__pycache__
